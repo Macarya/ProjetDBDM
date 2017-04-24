@@ -1,3 +1,9 @@
+def aff(res):
+    for i in range(len(res)):
+        for j in range(len(res[i])):
+            if res[i][j]!=[]:
+                print(i,j)
+
 
 def parse(NomFichier='out.txt'):
     with open(NomFichier,'r') as fichier:
@@ -20,7 +26,7 @@ def parse(NomFichier='out.txt'):
             Resultat[pkey][key].append(time-ptime)
         else:
             Duree[key][-1]+=time
-        pkey,ptime=key,time
+            pkey,ptime=key,time
     return(Duree,Resultat)
     
     
