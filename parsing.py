@@ -20,6 +20,7 @@ def parse(NomFichier='out.txt'):
             Resultat[pkey][key].append(time-ptime)
         else:
             Duree[key][-1]+=time
+        pkey,ptime=key,time
     return(Duree,Resultat)
     
     
