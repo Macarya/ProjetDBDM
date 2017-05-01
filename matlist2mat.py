@@ -39,7 +39,7 @@ def moyenne(l):
         return -1
     return sum(l)/len(l)
 
-def moyenne_sans_quartil(l,q=4):
+def moyenne_sans_quartil(l,q=6):
     n = len(l)
     if(not n):
         return -1
@@ -67,7 +67,7 @@ def dist2m_moyg(M1,M2):
     for i in range(len(M1)):
         for j in range(len(M1[i])):
             if (M1[i][j]>0 and M2[i][j]>0):
-                if (M1[i][j]<M2[i][j]):
+                if (M1[i][j]>M2[i][j]):
                     a+=M1[i][j]/M2[i][j]
                 else :
                     a+=M2[i][j]/M1[i][j]
@@ -76,17 +76,56 @@ def dist2m_moyg(M1,M2):
         return a/k
     return -1
 
-_,Mxa = parse('out.txt')
-_,Mra = parse('out(1).txt')
-_,Mxt = parse('out(2).txt')
-_,Mrt = parse('out(3).txt')
+_,Mxa = parse('xavier_dicté.txt')
+_,Mra = parse('redouane_dicté.txt')
+_,Mxt = parse('xavier_test.txt')
+_,Mrt = parse('redouane_test.txt')
+_,Mxl = parse('xavier_lorem_ipsum.txt')
+_,Mxc = parse('xavier_copie_daudet_derniere_classe.txt')
 
 Mxa1 = mtxl2m(Mxa,moyenne_sans_quartil)
 Mra1 = mtxl2m(Mra,moyenne_sans_quartil)
 Mxt1 = mtxl2m(Mxt,moyenne_sans_quartil)
 Mrt1 = mtxl2m(Mrt,moyenne_sans_quartil)
+Mxl1 = mtxl2m(Mxl,moyenne_sans_quartil)
+Mxc1 = mtxl2m(Mxc,moyenne_sans_quartil)
 
+#print(dist2m_moyg(Mxa1,Mra1))
+print("juste")
 print(dist2m_moyg(Mxa1,Mxt1))
+print("faux")
 print(dist2m_moyg(Mxa1,Mrt1))
 print(dist2m_moyg(Mra1,Mxt1))
-print(dist2m_moyg(Mra1,Mrt1))
+#print(dist2m_moyg(Mra1,Mrt1))
+#print(dist2m_moyg(Mxa1,Mxl1))
+#print(dist2m_moyg(Mra1,Mxl1))
+#print(dist2m_moyg(Mxt1,Mxl1))
+#print(dist2m_moyg(Mrt1,Mxl1))
+print("juste")
+print(dist2m_moyg(Mxa1,Mxc1))
+print(dist2m_moyg(Mxt1,Mxc1))
+print(dist2m_moyg(Mxl1,Mxc1))
+print("faux")
+print(dist2m_moyg(Mxc1,Mrt1))
+print(dist2m_moyg(Mxc1,Mra1))
+
+print("\n ari \n")
+
+#print(dist2m_moya(Mxa1,Mra1))
+print("juste")
+print(dist2m_moya(Mxa1,Mxt1))
+print("faux")
+print(dist2m_moya(Mxa1,Mrt1))
+print(dist2m_moya(Mra1,Mxt1))
+#print(dist2m_moya(Mra1,Mrt1))
+#print(dist2m_moya(Mxa1,Mxl1))
+#print(dist2m_moya(Mra1,Mxl1))
+#print(dist2m_moya(Mxt1,Mxl1))
+#print(dist2m_moya(Mrt1,Mxl1))
+print("juste")
+print(dist2m_moya(Mxa1,Mxc1))
+print(dist2m_moya(Mxt1,Mxc1))
+print(dist2m_moya(Mxl1,Mxc1))
+print("faux")
+print(dist2m_moya(Mxc1,Mrt1))
+print(dist2m_moya(Mxc1,Mra1))
