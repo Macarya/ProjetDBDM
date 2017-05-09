@@ -1,3 +1,7 @@
+import os
+
+#os.chdir("D:\\Users\\Yannis\\Documents\\ProjetDBDM")
+
 def aff(res):
     for i in range(len(res)):
         for j in range(len(res[i])):
@@ -16,7 +20,7 @@ def parse(NomFichier='out.txt'):
     Duree=[ [] for i in range(248)]
     
     pkey,ptime=int(texte[0]),float(texte[2])
-    Duree[pkey].append(ptime)
+    Duree[pkey].append(-ptime)
     for n in range(3,len(texte),3):
         key,time=int(texte[n]),float(texte[n+2])
         if texte[n+1]=='+':
