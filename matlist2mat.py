@@ -137,6 +137,7 @@ def dist2l_moygp(L1,L2):
     return -1
 """
 Lxa,Mxa = parse('xavier_dicté.txt')
+
 Lra,Mra = parse('redouane_dicté.txt')
 Lxt,Mxt = parse('xavier_test.txt')
 Lrt,Mrt = parse('redouane_test.txt')
