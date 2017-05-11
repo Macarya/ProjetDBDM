@@ -5,6 +5,7 @@ def distance(Training, Sample):
 	for i in range(len(Sample)):
 		for j in range(len(Sample)):
 			mean, std = Training[i][j]
+			std = sqrt(std)
 			min = mean - 1.5*std
 			max = mean + 1.5*std
 			for x in Sample[i][j]:
@@ -12,3 +13,25 @@ def distance(Training, Sample):
 					score += 1
 	return score
 
+class Classifieur:
+	def __init__(self):
+		self.trainings = {}
+
+	def addTraining(self, className, matrix):
+		self.trainings[className] = matrix
+
+	def predict(self, matrix):
+		maxi = -1
+		best = ""
+		for clas, clasMat in self.trainings.items():
+			s = distance(clasMat, matrix)
+			if s > maxi:
+				maxi = s
+				best = clas
+		return best
+
+	def printing(self):
+		print (slef.trainings)
+
+	def __repr__(self):
+		return str(self.trainings)
