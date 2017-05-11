@@ -84,7 +84,7 @@ def dist2l_moyg(L1,L2):
         return a/k
     return -1
 
-Lxa,Mxa = parse('xavier_dicté.txt')
+"""Lxa,Mxa = parse('xavier_dicté.txt')
 Lra,Mra = parse('redouane_dicté.txt')
 Lxt,Mxt = parse('xavier_test.txt')
 Lrt,Mrt = parse('redouane_test.txt')
@@ -186,4 +186,4 @@ print(dist2l_moya(Lxt1,Lxc1))
 print(dist2l_moya(Lxl1,Lxc1))
 print("faux")
 print(dist2l_moya(Lxc1,Lrt1))
-print(dist2l_moya(Lxc1,Lra1))
+print(dist2l_moya(Lxc1,Lra1))"""

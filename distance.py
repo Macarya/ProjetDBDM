@@ -1,3 +1,6 @@
+from matlist2mat import mtxl2m
+from math import sqrt
+
 #Training matrice de paire (moyenne, ecart_type)
 #Sample matrice de liste de temps
 def distance(Training, Sample):
@@ -18,7 +21,7 @@ class Classifieur:
 		self.trainings = {}
 
 	def addTraining(self, className, matrix):
-		self.trainings[className] = matrix
+		self.trainings[className] = mtxl2m(matrix)
 
 	def predict(self, matrix):
 		maxi = -1
@@ -31,7 +34,7 @@ class Classifieur:
 		return best
 
 	def printing(self):
-		print (slef.trainings)
+		print (self.trainings)
 
 	def __repr__(self):
 		return str(self.trainings)
