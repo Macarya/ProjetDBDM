@@ -32,6 +32,16 @@ class Classifieur:
 				maxi = s
 				best = clas
 		return best
+    
+    def predictmoyap(self, matrix):
+		maxi = 1000000
+		best = ""
+		for clas, clasMat in self.trainings.items():
+			s = dist2m_moyap(clasMat, matrix)
+			if s < maxi:
+				maxi = s
+				best = clas
+		return best
 
 	def printing(self):
 		print (self.trainings)
