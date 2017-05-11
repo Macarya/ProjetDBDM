@@ -10,13 +10,17 @@ from parsing import parse,aff
     
 def moyenne(l):
     if (not len(l)):
-        return -1
-    return sum(l)/len(l)
+        return (-1,0)
+    moy = sum(l)/len(l)
+    a = 0;
+    for x in l:
+        a+=(x-moy)**2
+    return [moy,a/len(l)]
 
 def moyenne_sans_quartil(l,q=4):
     n = len(l)
     if(not n):
-        return -1
+        return -1,0
     l_tempo = sorted(l)
     return moyenne(l_tempo[(n//q):min(n,(q-1)*((n+q)//q))])
     
@@ -32,8 +36,8 @@ def dist2m_moya(M1,M2):
     k = 0;
     for i in range(len(M1)):
         for j in range(len(M1[i])):
-            if (M1[i][j]>0 and M2[i][j]>0):
-                a+=abs(M1[i][j]-M2[i][j])
+            if (M1[i][j][0]>0 and M2[i][j][0]>0):
+                a+=abs(M1[i][j][0]-M2[i][j][0])
                 k+=1
     if k > 0:
         return a/k
@@ -44,11 +48,11 @@ def dist2m_moyg(M1,M2):
     k = 0;
     for i in range(len(M1)):
         for j in range(len(M1[i])):
-            if (M1[i][j]>0 and M2[i][j]>0):
-                if (M1[i][j]>M2[i][j]):
-                    a+=M1[i][j]/M2[i][j]
+            if (M1[i][j][0]>0 and M2[i][j][0]>0):
+                if (M1[i][j][0]>M2[i][j][0]):
+                    a+=M1[i][j][0]/M2[i][j][0]
                 else :
-                    a+=M2[i][j]/M1[i][j]
+                    a+=M2[i][j][0]/M1[i][j][0]
                 k+=1
     if k > 0:
         return a/k
@@ -59,8 +63,8 @@ def dist2l_moya(L1,L2):
     a = 0;
     k = 0;
     for i in range(len(L1)):
-        if (L1[i]>0 and L2[i]>0):
-            a+=abs(L1[i]-L2[i])
+        if (L1[i][0]>0 and L2[i][0]>0):
+            a+=abs(L1[i][0]-L2[i][0])
             k+=1
     if k > 0:
         return a/k
@@ -70,11 +74,11 @@ def dist2l_moyg(L1,L2):
     a = 0;
     k = 0;
     for i in range(len(L1)):
-        if (L1[i]>0 and L2[i]>0):
-            if (L1[i]>L2[i]):
-                a+=L1[i]/L2[i]
+        if (L1[i][0]>0 and L2[i][0]>0):
+            if (L1[i][0]>L2[i][0]):
+                a+=L1[i][0]/L2[i][0]
             else :
-                a+=L2[i]/L1[i]
+                a+=L2[i][0]/L1[i][0]
             k+=1
     if k > 0:
         return a/k
@@ -101,18 +105,6 @@ Lrt1 = ll2m(Lrt,moyenne_sans_quartil)
 Lxl1 = ll2m(Lxl,moyenne_sans_quartil)
 Lxc1 = ll2m(Lxc,moyenne_sans_quartil)
 
-Lxa1[16] = -1
-Lra1[16] = -1
-Lxt1[16] = -1
-Lrt1[16] = -1
-Lxl1[16] = -1
-Lxc1[16] = -1
-Lxa1[9] = -1
-Lra1[9] = -1
-Lxt1[9] = -1
-Lrt1[9] = -1
-Lxl1[9] = -1
-Lxc1[9] = -1
 
 #print(dist2m_moyg(Mxa1,Mra1))
 print("juste")
